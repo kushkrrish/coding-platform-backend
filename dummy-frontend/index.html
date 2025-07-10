@@ -4,22 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #f5f7fa 0%, #e0e7ff 100%);
+            font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        h1 {
+            color: #232946;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            font-size: 2.3rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .button-group {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        button {
+            background: linear-gradient(90deg, #4f8cff 60%, #232946 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 28px;
+            font-size: 1.08rem;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(79,140,255,0.10);
+            transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #232946 60%, #4f8cff 100%);
+            box-shadow: 0 6px 18px rgba(79,140,255,0.18);
+            transform: translateY(-2px) scale(1.04);
+        }
+        #connectionResponse, #submissionResponse {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 18px 24px;
+            margin: 18px 0;
+            min-width: 340px;
+            min-height: 32px;
+            color: #232946;
+            font-size: 1.13rem;
+            word-break: break-all;
+            border-left: 5px solid #4f8cff;
+        }
+        #submissionResponse {
+            font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+            background: #f3f6fd;
+            color: #1a2330;
+            margin-bottom: 32px;
+            white-space: pre-wrap;
+        }
+        @media (max-width: 600px) {
+            #connectionResponse, #submissionResponse {
+                min-width: 0;
+                width: 90vw;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>
-        Hello World
-    </h1>
+    <h1>coding-platform Microservices Frontend</h1>
 
-    <button type="button" id="btn">Click me</button>
-
-    <button id="connectionBtn">Fetch connection id</button>
+    <div class="button-group">
+        <button type="button" id="btn">Set User ID</button>
+        <button id="connectionBtn">Fetch Connection ID</button>
+    </div>
 
     <div id="connectionResponse">
-
+        <!-- Connection ID will appear here -->
     </div>
 
     <div id="submissionResponse">
-
+        <!-- Output payload will appear here -->
     </div>
 
     <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
